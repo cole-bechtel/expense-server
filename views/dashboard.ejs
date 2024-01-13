@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expenses | Dashboard</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 id="balance"></h1>
+        <button id="sign-out-button" onclick="signout()">Sign out</button>
+        <button id="add-entry-button" onclick="toggleEntryForm()">Add entry</button>
+        <br>
+        <form id="add-entry-form" action="/entry" method="post">
+            <label for="entry-type">Type:</label>
+            <select id="entry-type" name="type">
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+            </select>
+            <br>
+            <label for="entry-amount">Amount:</label>
+            <input type="text" id="entry-amount" class="entry-input-box" name="amount" pattern="\d+(\.\d{1,2})?">
+            <label for="entry-description">Description:</label>
+            <textarea rows="1" id="entry-description" class="entry-input-box" name="description"></textarea>
+            <input type="submit" value="Submit" class="submit-button">
+        </form>
+        <h1>History:</h1>
+        <div id="entry-history">
+            <ul id="entry-list">
+                <% data.entries.forEach(function(item) { %>
+                  <li><span class="history-amount">$<%= item.amount %></span> — <%= item.description %> — <%=item.date %></li>
+                <% }); %>
+            </ul>
+        </div>
+    </body> 
+
+    <script>
+        function signout(){
+            window.location.href = "/go-to-login"
+        }
+
+        document.getElementById('add-entry-form').style.display = 'none';
+        function toggleEntryForm(){
+            let visible = document.getElementById('add-entry-form').style.display === 'block';
+            if(visible){
+                document.getElementById('add-entry-form').style.display = 'none';
+            }
+            else{
+                document.getElementById('add-entry-form').style.display = 'block';
+            }
+        }
+
+        function increaseDescriptionHeight(){
+            let description = document.getElementById('entry-description');
+            if(description.scrollHeight > description.clientHeight){
+                description.style.height = description.scrollHeight + 'px';
+            }
+            else if(description.style.height !== ''){
+                description.style.height = '';
+                description.style.height = description.scrollHeight + 'px';
+            }
+        }
+
+        //Increase height when input into entry description
+        document.getElementById('entry-description').addEventListener('input', increaseDescriptionHeight);
+
+        /*-------------------EJS:-------------------*/
+        const balance = '<%= data.balance %>';
+        document.getElementById('balance').innerHTML = `Balance: <span id="balance-number">$${balance}</span>`;
+        if(parseFloat(balance) < 0){
+            document.getElementById('balance-number').style = 'color: red;'
+        }
+        else{
+            document.getElementById('balance-number').style = 'color: rgb(12, 173, 17);'
+        }
+
+        //Entry history
+        let amounts = document.getElementsByClassName('history-amount');
+        for(let span of amounts){
+            if(parseFloat(span.innerHTML.substring(1)) < 0){
+                span.style = "color: red;"
+            }
+            else{
+                span.style = "color: rgb(12, 173, 17);"
+            }
+        }
+    </script>
+</html>

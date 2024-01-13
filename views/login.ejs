@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expenses | Login</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Expenses - Login</h1>
+        <form id="login-form" action="/login" method="POST">
+            <label for="username" class="login-label">Username:</label>
+            <input type="text" id="username" class="login-input" name="username" required>
+            <br>
+            <label for="password" class="login-label">Password:</label>
+            <input type="password" id="password" class="login-input" name="password" required>
+            <br>
+            <input type="submit" value="Login" class="submit-button">
+        </form>
+        <a href="/go-to-register" class="login-link">Don't have an acount? Sign up here</a>
+        <% if(data.error !== ''){ %>
+            <p class="login-error"><%= data.error %></p>
+        <% } %>
+    </body>
+</html>

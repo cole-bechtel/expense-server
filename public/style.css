@@ -1,0 +1,161 @@
+body{
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+h1{
+    margin-left: 25px;
+    font-size: 60px;
+}
+
+button{
+    cursor: pointer;
+    background-color: rgb(201, 201, 201);
+}
+
+button:hover{
+    background-color: rgb(180, 180, 180);
+}
+
+#login-form{
+    margin-left: 60px;
+}
+
+.login-label{
+    font-size: 50px;
+}
+
+.login-input{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    outline-color: rgb(0,122,255);
+    margin-bottom: 20px;
+    width: calc(100% - 100px);
+}
+
+.register-link{
+    display: block;
+    margin-top: 30px;
+    text-decoration: none;
+    color: #1f54be;
+    font-size: 30px;
+}
+
+.register-link:visited {
+    color: #1f54be;
+}
+
+.login-link{
+    display: block;
+    margin-left: 60px;
+    margin-top: 30px;
+    text-decoration: none;
+    color: #1f54be;
+    font-size: 30px;
+}
+
+.login-link:visited {
+    color: #1f54be;
+}
+
+.login-error{
+    margin-left: 60px;
+    font-size: 30px;
+    color: red;
+}
+
+#show-password-box{
+    transform: scale(1.5);
+    vertical-align: middle;
+}
+
+#show-password-label{
+    margin-left: 10px;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+#sign-out-button{
+    font-family: 'Trebuchet MS', sans-serif;
+    color: black;
+    font-size: 25px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    padding: 10px 15px;
+    border-width: 2px;
+    border-color: black;
+}
+
+#add-entry-button{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 30px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 5px;
+}
+
+#add-entry-form{
+    margin-top: 20px;
+    margin-left: 25px;
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#add-entry-form label{
+    display: inline-block;
+    margin-bottom: 10px
+}
+
+#entry-type{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+#entry-type:hover{
+    background-color: rgb(180, 180, 180);
+}
+
+.entry-input-box{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    outline-color: rgb(0,122,255);
+    width: calc(100% - 50px);
+    margin-bottom: 15px;
+}
+
+#entry-description{
+    resize: none;
+}
+
+.submit-button{
+    margin-top: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    color: black;
+    padding: 20px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 5px;
+}
+
+#entry-history{
+    margin-left: 30px;
+    margin-top: -30px;
+}
+
+#entry-list{
+    list-style-type: none;
+    font-size: 40px;
+    line-height: 75px;
+    padding: 0px;
+}
+

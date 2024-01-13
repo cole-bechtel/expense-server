@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expenses | Login</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Expenses - Register</h1>
+        <form id="login-form" action="/register" method="POST">
+            <label for="firstname" class="login-label">First name:</label>
+            <input type="text" id="firstname" class="login-input" name="firstname" required>
+            <br>
+            <label for="surname" class="login-label">Surname:</label>
+            <input type="text" id="surname" class="login-input" name="surname" required>
+            <br>
+            <label for="username" class="login-label">Username:</label>
+            <input type="text" id="username" class="login-input" name="username" required>
+            <br>
+            <label for="password" class="login-label">Password:</label>
+            <input type="password" id="password" class="login-input" name="password" required>
+            <br>
+            <input type="checkbox" id="show-password-box" onchange="togglePassword()">
+            <label for="show-password-box" id="show-password-label">Show Password</p>
+            <input type="submit" value="Register" class="submit-button">
+        </form>
+
+        <a href="/go-to-login" class="register-link">Already registered? Login here</a>
+        <% if(data.error !== ''){ %>
+            <p class="login-error" style="margin-left: 0px;"><%= data.error %></p>
+        <% } %>
+        <script>
+            function togglePassword(){
+                let password = document.getElementById('password');
+
+                password.type = password.type === 'text' ? 'password' : 'text';
+            }
+        </script>
+    </body>
+</html>
