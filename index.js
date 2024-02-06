@@ -1,3 +1,4 @@
+const https = require('https');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -19,6 +20,14 @@ app.use((req, res, next) => {
     userData = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
     next();
 });
+
+const options = {
+    key: fs.readFileSync("/etc/letsencrypt/live/expenses.colebechtel.com/privkey.pem"),
+    cert: fs.readFileSync("/etc/letsencrypt/live/expenses.colebechtel.com/fullchain.pem"),
+    ca: fs.readFileSync("/etc/letsencrypt/live/expenses.colebechtel.com/chain.pem")
+};
+
+const server = https.createServer(options, app);
 
 let userData = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
 
@@ -192,6 +201,6 @@ app.get('/delete-account', (req, res) => {
 
 const port = process.env.PORT || 9874;
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });
