@@ -7,6 +7,7 @@
     <body>
         <h1 id="balance"></h1>
         <button id="sign-out-button" onclick="signout()">Sign out</button>
+        <button id="delete-account-button" onclick="deleteAccount()">Delete account</button>
         <button id="add-entry-button" onclick="toggleEntryForm()">Add entry</button>
         <br>
         <form id="add-entry-form" action="/entry" method="post">
@@ -35,6 +36,10 @@
     <script>
         function signout(){
             window.location.href = "/go-to-login"
+        }
+
+        function deleteAccount(){
+            window.location.href = "/delete-account"  
         }
 
         document.getElementById('add-entry-form').style.display = 'none';

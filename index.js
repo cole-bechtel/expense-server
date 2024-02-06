@@ -69,7 +69,6 @@ app.post('/login', (req, res) => {
         const data = {
             error: 'Username does not exist'
         };
-        console.log('ghelp') 
         res.render('login', {data});
     }
 });
@@ -169,15 +168,26 @@ app.get('/dashboard', (req, res) => {
 app.get('/go-to-register', (req, res) => {
     const data = {
         error: ''
-    }
-    res.render('register', {data})
+    };
+    res.render('register', {data});
 });
 
 app.get('/go-to-login', (req, res) => {
     const data = {
         error: ''
-    }
-    res.render('login', {data})
+    };
+    res.render('login', {data});
+});
+
+app.get('/delete-account', (req, res) => {
+    const { username, session } = req.cookies;
+    const data = {
+        error: ''
+    };
+    const indexOfUser = userData.findIndex(obj => obj.username === username);
+    userData.splice(indexOfUser, 1);
+    saveUserData();
+    res.redirect('/');
 });
 
 const port = process.env.PORT || 9874;

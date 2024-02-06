@@ -87,6 +87,19 @@ button:hover{
     border-color: black;
 }
 
+#delete-account-button{
+    font-family: 'Trebuchet MS', sans-serif;
+    color: black;
+    font-size: 25px;
+    border-radius: 5px;
+    position: absolute;
+    top: 120px;
+    right: 50px;
+    padding: 10px 15px;
+    border-width: 2px;
+    border-color: black;
+}
+
 #add-entry-button{
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 50px;
